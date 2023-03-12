@@ -24,7 +24,7 @@ $(function () {
     });
   }
 
-  function revaluatetimeColor() {
+  function revaluateColor() {
     $(".time-block").each(function () {
       const timePeriod = parseInt(this.id);
       if (timePeriod == timeNow) {
@@ -46,7 +46,7 @@ $(function () {
   function updateTime() {
     const dateElement = $("#date");
     const timeElement = $("#time");
-    const currentDate = dayjs().format("dddd, MMMM D, YYYY");
+    const currentDate = dayjs().format("dddd MMMM D, YYYY");
     const currentTime = dayjs().format("hh:mm:ss A");
     dateElement.text(currentDate);
     timeElement.text(currentTime);
@@ -54,6 +54,6 @@ $(function () {
 
   changeColor();
   enterText();
-  revaluatetimeColor();
+  revaluateColor();
   setInterval(updateTime, 1000);
 });
