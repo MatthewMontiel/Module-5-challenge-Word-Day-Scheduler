@@ -42,6 +42,12 @@ $(function () {
     $(this).children(".description").val(points);
   });
 
+  function updateTime() {
+    const dateElement = $("#date");
+    const currentDate = dayjs.format("dddd, MMMM D, YYYY");
+    dateElement.text(currentDate);
+  }
+
   changetimeColor();
   enterText();
   revaluatetimeColor();
