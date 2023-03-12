@@ -7,7 +7,7 @@ dayjs.locale(localeSettings);
 $(function () {
   const timeNow = dayjs().format("H");
 
-  function changetimeColor() {
+  function changeColor() {
     $(".time-block").each(function () {
       const timePeriod = parseInt(this.id);
       $(this).toggleClass("past", timePeriod < timeNow);
@@ -52,7 +52,7 @@ $(function () {
     timeElement.text(currentTime);
   }
 
-  changetimeColor();
+  changeColor();
   enterText();
   revaluatetimeColor();
   setInterval(updateTime, 1000);
