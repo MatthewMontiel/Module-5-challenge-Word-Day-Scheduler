@@ -6,6 +6,7 @@ dayjs.locale(localeSettings);
 
 $(function () {
   const timeNow = dayjs().format("H");
+
   function changetimeColor() {
     $(".time-block").each(function () {
       const timePeriod = parseInt(this.id);
@@ -44,9 +45,9 @@ $(function () {
 
   function updateTime() {
     const dateElement = $("#date");
-    const timeElement = $("#time")
+    const timeElement = $("#time");
     const currentDate = dayjs().format("dddd, MMMM D, YYYY");
-    const currentTime = dayjs().format('hh:mm:ss A');
+    const currentTime = dayjs().format("hh:mm:ss A");
     dateElement.text(currentDate);
     timeElement.text(currentTime);
   }
