@@ -1,15 +1,15 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-const localeSettings = {};
+let localeSettings = {};
 dayjs.locale(localeSettings);
 
 $(function () {
-  const timeNow = dayjs().format("H");
+  let timeNow = dayjs().format("H");
 
   function changeColor() {
     $(".time-block").each(function () {
-      const timePeriod = parseInt(this.id);
+      let timePeriod = parseInt(this.id);
       $(this).toggleClass("past", timePeriod < timeNow);
       $(this).toggleClass("present", timePeriod === timeNow);
       $(this).toggleClass("future", timePeriod > timeNow);
@@ -18,15 +18,15 @@ $(function () {
 
   function enterText() {
     $(".saveBtn").on("click", function () {
-      const token = $(this).parent().attr("id");
-      const points = $(this).siblings(".description").val();
+      let token = $(this).parent().attr("id");
+      let points = $(this).siblings(".description").val();
       localStorage.setItem(token, points);
     });
   }
 
   function revaluateColor() {
     $(".time-block").each(function () {
-      const timePeriod = parseInt(this.id);
+      let timePeriod = parseInt(this.id);
       if (timePeriod == timeNow) {
         $(this).removeClass("past future").addClass("present");
       } else if (timePeriod < timeNow) {
@@ -38,16 +38,16 @@ $(function () {
   }
 
   $(".time-block").each(function () {
-    const token = $(this).attr("id");
-    const points = localStorage.getItem(token);
+    let token = $(this).attr("id");
+    let points = localStorage.getItem(token);
     $(this).children(".description").val(points);
   });
 
   function updateTime() {
-    const dateElement = $("#date");
-    const timeElement = $("#time");
-    const currentDate = dayjs().format("dddd MMMM Do, YYYY");
-    const currentTime = dayjs().format("hh:mm:ss A");
+    let dateElement = $("#date");
+    let timeElement = $("#time");
+    let currentDate = dayjs().format("dddd MMMM Do, YYYY");
+    let currentTime = dayjs().format("hh:mm:ss A");
     dateElement.text(currentDate);
     timeElement.text(currentTime);
   }
